@@ -1,5 +1,8 @@
-<script>
-    export let filter = "all";
+<!-- components/FilterButton.svelte -->
+<script lang="ts">
+    import { Filter } from "../types/filter.enum";
+
+    export let filter: Filter = Filter.ALL;
 </script>
 
 <div class="filters btn-group stack-exception">
@@ -7,7 +10,7 @@
         class="btn toggle-btn"
         class:btn__primary={filter === "all"}
         aria-pressed={filter === "all"}
-        on:click={() => (filter = "all")}
+        on:click={() => (filter = Filter.ALL)}
     >
         <span class="visually-hidden">Show</span>
         <span>All</span>
@@ -17,7 +20,7 @@
         class="btn toggle-btn"
         class:btn__primary={filter === "active"}
         aria-pressed={filter === "active"}
-        on:click={() => (filter = "active")}
+        on:click={() => (filter = Filter.ACTIVE)}
     >
         <span class="visually-hidden">Show</span>
         <span>Active</span>
@@ -27,7 +30,7 @@
         class="btn toggle-btn"
         class:btn__primary={filter === "completed"}
         aria-pressed={filter === "completed"}
-        on:click={() => (filter = "completed")}
+        on:click={() => (filter = Filter.COMPLETED)}
     >
         <span class="visually-hidden">Show</span>
         <span>Completed</span>
